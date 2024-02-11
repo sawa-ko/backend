@@ -13,6 +13,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 # build source
 COPY . ./
 RUN pnpm run build
+RUN pnpm run migration:up
 
 # start server
 EXPOSE 80
